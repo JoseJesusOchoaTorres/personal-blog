@@ -1,33 +1,33 @@
 module.exports = {
   siteMetadata: {
-    title: `Novela by Narative`,
-    name: `Narative`,
-    siteUrl: `https://novela.narative.co`,
-    description: `This is my description that will be used in the meta tags and important for search results`,
+    title: `Jose Jesus Ochoa`,
+    name: `Jose Jesus`,
+    siteUrl: `https://josejesus.dev/`,
+    description: `This is my personal blog, where you can find programming articles`,
     hero: {
-      heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
+      heading: `Welcome to my personal blog, I hope you enjoy reading as much as I do writing.`,
       maxWidth: 652,
     },
     social: [
       {
         name: `twitter`,
-        url: `https://twitter.com/narative`,
+        url: `https://twitter.com/jjot93`,
       },
       {
         name: `github`,
-        url: `https://github.com/narative`,
+        url: `https://github.com/JoseJesusOchoaTorres/`,
       },
       {
         name: `instagram`,
-        url: `https://instagram.com/narative.co`,
+        url: `https://www.instagram.com/jose.jesus.ochoa.torres/`,
       },
       {
         name: `linkedin`,
-        url: `https://www.linkedin.com/company/narative/`,
+        url: `https://www.linkedin.com/in/jjot93/`,
       },
       {
-        name: `dribbble`,
-        url: `https://dribbble.com/narativestudio`,
+        name: `facebook`,
+        url: `https://www.facebook.com/jose.jesus.ochoa.torres`,
       },
     ],
   },
@@ -48,8 +48,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Novela by Narative`,
-        short_name: `Novela`,
+        name: `Jose Jesus Ochoa`,
+        short_name: `Jose Jesus`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#fff`,
