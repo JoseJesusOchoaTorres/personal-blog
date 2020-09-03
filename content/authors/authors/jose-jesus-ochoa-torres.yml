@@ -1,10 +1,10 @@
 name: Jose Jesus Ochoa Torres
 bio: 'Hey there, I am software engineer at IBM'
 featured: true
-avatar: avatars/me.png
+avatar: ./avatars/jose-jesus-ochoa-torres.jpg
 social:
-  - 'https://github.com/JoseJesusOchoaTorres'
-  - 'https://www.linkedin.com/in/jjot93/'
-  - 'https://www.instagram.com/jose.jesus.ochoa.torres/'
-  - 'https://twitter.com/jjot93'
-  - 'https://www.facebook.com/jose.jesus.ochoa.torres/'
+  - url: 'https://github.com/JoseJesusOchoaTorres'
+  - url: 'https://www.linkedin.com/in/jjot93/'
+  - url: 'https://www.instagram.com/jose.jesus.ochoa.torres/'
+  - url: 'https://twitter.com/jjot93'
+  - url: 'https://www.facebook.com/jose.jesus.ochoa.torres/'
