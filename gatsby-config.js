@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://josejesus.dev/`,
     description: `This is my personal blog, where you can find programming articles`,
     hero: {
-      heading: `Welcome to my personal blog, I hope you enjoy reading as much as I do writing.`,
+      heading: `Welcome to my personal blog; I hope you enjoy reading as much as I do writing.`,
       maxWidth: 652,
     },
     social: [
