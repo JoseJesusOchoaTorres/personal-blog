@@ -4,7 +4,6 @@ backend: # Set up your backend
 
 local_backend: true # Optional if you want to use the local proxy mode
 
-publish_mode: editorial_workflow
 media_folder: media    # I'm not using these default media directories at the moment.
 public_folder: /media
 
