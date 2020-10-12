@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Jose Jesus Ochoa`,
+    title: `Jose Jesus`,
     name: `Jose Jesus`,
     siteUrl: `https://josejesus.dev/`,
-    description: `This is my personal blog, where you can find programming articles`,
+    description: `Este es mi blog personal en el cual podrás encontrar temas relacionados a desarrollo web y arquitectura.`,
     hero: {
-      heading: `Welcome to my personal blog; I hope you enjoy reading as much as I do writing.`,
+      heading: `Bienvenido a mi blog personal; Espero disfrutes leyendo mi contenido tanto como yo escribiendo.`,
       maxWidth: 652,
     },
     social: [
@@ -48,7 +48,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Jose Jesus Ochoa`,
+        name: `Jose Jesus`,
         short_name: `Jose Jesus`,
         start_url: `/`,
         background_color: `#fff`,

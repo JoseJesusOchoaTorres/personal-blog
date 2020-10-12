@@ -9,16 +9,16 @@ import React from 'react';
  */
 export default function Logo({ fill }) {
   return (
-    <svg height="30" fill={fill} xmlns="http://www.w3.org/2000/svg">
+    <svg height="30" width="130" fill={fill} xmlns="http://www.w3.org/2000/svg">
       <circle cx="10" cy="15" r="10"/>
       <text
-        font-weight="normal"
-        text-anchor="start"
-        font-family="Helvetica, Arial, sans-serif"
-        font-size="24"
+        fontWeight="normal"
+        textAnchor="start"
+        fontFamily="Helvetica, Arial, sans-serif"
+        fontSize="24"
         y="22"
         x="30"
-        stroke-width="0"
+        strokeWidth="0"
         fill={fill}>
           JOSE JESUS
       </text>
