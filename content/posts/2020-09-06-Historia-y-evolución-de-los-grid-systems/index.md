@@ -555,5 +555,5 @@ Dentro de nuestro archivo `_grid.scss` llamaremos nuestros mixins de la siguient
 
 Y sin lugar a duda sería una versión más limpia, ordenada y mantenible. Esto tendría que seguir generando todas nuestras clases del grid system tal y como si las hubiéramos definido manualmente como lo hicimos anteriormente.
 
-Espero ahora puedas ver todo el potenical que te brinda el uso de preprocesadores, no me gustaria externder aun mas este articulo pero mas adelante en otro articulo explicare como puedes hacer generadores de [Functional CSS](https://critter.blog/2018/06/08/in-defense-of-functional-css/) y tener tus clases helper de _paddings, margins, colors, backgrounds, etc_
+Espero ahora puedas ver todo el potencial que te brinda el uso de preprocesadores, no me gustaría extender aún más este artículo, así que hablaremos de [Functional CSS](https://critter.blog/2018/06/08/in-defense-of-functional-css/) y generadores de clases para _paddings, margins, colors, backgrounds, etc_ en otra ocasión.
 
