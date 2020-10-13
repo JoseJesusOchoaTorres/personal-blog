@@ -53,14 +53,19 @@ module.exports = {
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#fff`,
-        display: `standalone`,
+        display: `fullscreen`,
         icon: `src/assets/favicon.png`,
       },
     },
     {
       resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-      },
+      options: {},
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
+      },
+    }
   ],
 };
