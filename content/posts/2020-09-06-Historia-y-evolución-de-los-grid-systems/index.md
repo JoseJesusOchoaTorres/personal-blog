@@ -732,5 +732,8 @@ El verdadero motivo detrás de este artículo es despertar tu curiosidad para in
 
 ## Extas
 
-- **Código Fuente:** https://github.com/JoseJesusOchoaTorres/grid-system-example
-- **Live Demo:** https://josejesusochoatorres.github.io/grid-system-example/index.html
+- **Código Fuente**
+    https://github.com/JoseJesusOchoaTorres/grid-system-example
+
+- **Live Demo**
+    https://josejesusochoatorres.github.io/grid-system-example/index.html
