@@ -5,7 +5,7 @@ date: '2020-10-18'
 excerpt: ¿Qué es un grid system y cómo se construyen?
 hero: images/historia-y-evolución-de-los-grid-systems-hero.jpg
 ---
-# Construye tu propio grid system
+# Grid systems
 
 Posiblemente si estás leyendo este artículo ya sabes lo que es un grid system o por lo menos has trabajado con algún framework que tenga uno como, Bootstrap, Bulma, Tailwind, etc.
 
@@ -724,13 +724,22 @@ En caso de que tu decidas no generar estas clases offset simplemente cambia el v
 
 ## Cierre
 
-Después de haber explicado cada uno de los elementos que conforman a un grid system, hemos logramos construir algo básico, pero realmente funcional. Durante este artículo me esforcé más por redactar algo que te ayude a comprender exactamente cómo funciona un grid system, en lugar de intentar construir algo que pudiera llegar a competir con los más populares.
+Después de haber explicado cada uno de los elementos que conforman a un grid system, hemos logramos construir algo básico, pero realmente funcional _(Grid system de una dimensión)_. Durante este artículo me esforcé más por redactar algo que te ayude a comprender exactamente cómo funciona un grid system, en lugar de intentar construir algo que pudiera llegar a competir con los más populares ya antes mencionados.
 
-El verdadero motivo detrás de este artículo es despertar tu curiosidad para intentar comprender cómo funcionan esas herramientas que usamos día a día, estoy seguro que más de alguno ha trabajado con un grid system pero no se han detenido a analizar cómo es que funcionan. No hay mejor manera de aprender, que analizar proyectos open source para después intentar contribuir en ellos; quizá la primera vez que vemos el código fuente de algún proyecto no logramos entender cómo funciona, cómo está organizado, o cual es el propósito de cada elemento, pero te aseguro que con el paso del tiempo y en cada iteración que des para intentar comprender su funcionamiento, esto te iniciara a lucir mas sencillo, despues de un tiempo serás capaz de construir, ya sea en documentación, solucionando issues o incorporando nuevas funcionalidades. Así que no tengas miedo de ser esa persona que estará cambiando la manera en la que se hacen las cosas.
+Se que muchos afirman que el uso de grid systems va en declive, y esto me parece una verdad a medias; definitivamente muchas personas dejaron de usar CSS frameworks con grid systems con el surgimiento de `display: grid` y es comprensible ya que en muchas ocasiones queremos maquetar algo rapido, sin agregar tiempos de carga _(por código de terceros)_, y mas sabiendo que `grid` es la manera nativa de generar filas y columnas para trabajar con dos dimensiones. Por otro lado, tenemos compañías grandes como IBM, Oracle, Github, etc., en las cuales se requiere cumplir con ciertos estándares de calidad, accesibilidad y seguir con el mismo “Look and feel” que le pertenece a cada compañía. Entonces tiene más sentido construir un "Grid system" e incorporarlo dentro de un "Design system" para asegurar el cumplimiento de lo ya antes mencionado. Estos no son los únicos casos de uso, y valdría la pena evaluar antes de cada proyecto si es necesario o no usar un grid system o design system.
+
+El verdadero motivo detrás de este artículo es despertar la curiosidad que hay en ti para intentar comprender cómo funcionan esas herramientas que usamos día a día, estoy seguro que más de alguno de los lectores que están leyendo este artículo ha trabajado con un grid system pero no se habían detenido a analizar cómo es que funcionan.
+
+No hay mejor manera de aprender, que analizar proyectos open source para después intentar contribuir en ellos; quizá la primera vez que vemos el código fuente de algún proyecto no logramos entender cómo funciona, cómo está organizado, o cual es el propósito de cada elemento, pero te aseguro que con el paso del tiempo y en cada iteración que des para intentar comprender su funcionamiento, esto te iniciara a lucir mas sencillo, despues de un tiempo serás capaz de contribuir, ya sea en documentación, solucionando issues o incorporando nuevas funcionalidades. 
+
+Así que la próxima vez que estés trabajando con alguna librería o framework pregúntate:
+
+_**¿Cómo es que esto fue construido?**_
 
 ---
 
 ## Extas
 
-- **Código Fuente:** https://github.com/JoseJesusOchoaTorres/grid-system-example
-- **Live Demo:** https://josejesusochoatorres.github.io/grid-system-example/index.html
+- **[Código Fuente](https://github.com/JoseJesusOchoaTorres/grid-system-example)**
+- **[Live Demo](https://josejesusochoatorres.github.io/grid-system-example/index.html)**
+
