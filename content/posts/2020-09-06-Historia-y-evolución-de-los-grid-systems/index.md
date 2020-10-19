@@ -11,7 +11,7 @@ Posiblemente si estás leyendo este artículo ya sabes lo que es un grid system 
 
 Aun así, si no sabes lo que es, te lo explico brevemente.
 
-___
+- - -
 
 ## ¿Qué es un grid system?
 
@@ -23,7 +23,7 @@ Como menciona el artículo de Sitepoint, un grid system no es otra cosa más que
 
 Esta es una definición muy sencilla, pero carece de sentido si no se ha trabajado anteriormente con ellos, así que iniciemos a construir uno.
 
----
+- - -
 
 ## Preparativos antes de iniciar
 
@@ -67,7 +67,7 @@ En nuestro archivo `package.json` podrás ver dos scripts:
     "sass-dev":"sass --watch src/scss/index.scss:build/css/index.css",
     "sass-prod":"sass src/scss/index.scss:build/css/index.min.css --style compressed"
 },
-````
+```
 
 Estos scripts pueden ser ejecutados desde nuestra línea de comandos / terminal de la siguiente manera:
 
@@ -82,7 +82,7 @@ $ npm run sass-prod
 
 El primero, *sass-dev*, estará a la escucha de cambios dentro de todos nuestros archivos `.scss` que anteriormente fuera importados dentro de `index.scss`, posteriormente todo nuestro código será transpilando y copiado dentro del folder de `build` en un nuevo archivo llamado `index.css`.
 
-Por otro lado el segundo comando, *sass-prod*, correrá una sola vez, este script tomará todos nuestros archivos `.scss` _(importados en index.scss)_ y los moverá de la misma manera dentro del folder de `build` pero ahora en un archivo `index.min.css`. La diferencia es que este archivo está completamente minificado, esto quiere decir que será poco legible al ojo humano *(removiendo todos los espacios o tabulaciones)* pero totalmente comprensible para el browser y por lo mismo pesará mucho menos que un archivo que no ha sido minificado.
+Por otro lado el segundo comando, *sass-prod*, correrá una sola vez, este script tomará todos nuestros archivos `.scss` *(importados en index.scss)* y los moverá de la misma manera dentro del folder de `build` pero ahora en un archivo `index.min.css`. La diferencia es que este archivo está completamente minificado, esto quiere decir que será poco legible al ojo humano *(removiendo todos los espacios o tabulaciones)* pero totalmente comprensible para el browser y por lo mismo pesará mucho menos que un archivo que no ha sido minificado.
 
 Si observas el archivo `index.html` estamos usando el archivo `index.css`, en este archivo puedes experimentar con el código que estemos preparando durante este artículo, pero asegurate de usar en producción el archivo `index.min.css`
 
@@ -90,7 +90,7 @@ También he creado un folder con dos archivos, `normalice` y `my-normalize`. El 
 
 Una vez explicado esto vamos a iniciar.
 
----
+- - -
 
 ## Anatomía de un grid system
 
@@ -100,7 +100,7 @@ Cada grid system tiene terminologías distintas, así que podrás notar cómo ca
 
 Este contenedor principal no lo he visto en todos los grid systems pero si por lo menos en los más populares.
 
-__Función:__
+**Función:**
 
 * Envuelve toda o una sección de la página
 * Fija una anchura máxima
@@ -136,18 +136,17 @@ Las filas son elementos indispensables cuando se está trabajando con grid syste
 }
 ```
 
-Estoy declarando una clase `.row` en la cual usamos `display: flex` para flotar todos los elementos en su interior _(Children elements en el DOM)_ uno al lado del otro, con `flex-wrap: wrap` lo que hacemos es empujar un elemento que ya no cabe en el viewport debajo del primero _(parte inferior izquierda)_ ya que nuestros elementos se están ordenando de izquierda a derecha de arriba a bajo.
+Estoy declarando una clase `.row` en la cual usamos `display: flex` para flotar todos los elementos en su interior *(Children elements en el DOM)* uno al lado del otro, con `flex-wrap: wrap` lo que hacemos es empujar un elemento que ya no cabe en el viewport debajo del primero *(parte inferior izquierda)* ya que nuestros elementos se están ordenando de izquierda a derecha de arriba a bajo.
 
 ### 3.- Columnas *(Column)*
 
-Las columnas son los contenedores en los cuales colocaremos nuestro contenido.
-Al espacio que existe entre el contenido _(Box model content)_ de una columna y el contenido de otra se le conoce como `gutter`, en otras palabras el gutter es el padding interno que tendrán nuestras columnas.
+Las columnas son los contenedores en los cuales colocaremos nuestro contenido. Al espacio que existe entre el contenido *(Box model content)* de una columna y el contenido de otra se le conoce como `gutter`, en otras palabras el gutter es el padding interno que tendrán nuestras columnas.
 
 Hay dos tipos de columnas:
 
 #### 3.1.- Tamaño definido automáticamente:
 
-Estas tomarán una anchura automáticamente dependiendo del número de columnas _(sibling columns)_ definidas en la misma fila. 
+Estas tomarán una anchura automáticamente dependiendo del número de columnas *(sibling columns)* definidas en la misma fila. 
 
 ```scss
 .col {
@@ -159,7 +158,7 @@ Estas tomarán una anchura automáticamente dependiendo del número de columnas 
 
 En pocas palabras estamos usando estas tres propiedades para que nuestra/s columnas puedan aumentar o reducir su tamaño uniformemente dependiendo el numero de columnas; si te interesa conocer un poco mas sobre estas tres propiedades en este [articulo](https://www.paradigmadigital.com/dev/diferencia-flex-basis-width/) escrito por Gema de Rus lo explica muy bien.
 
-En la definición de columna _(Punto 3.)_ te hable de los `gutters`, pero en nuestra clase `.col` notaras que no estoy usando la propiedad de `padding` aun, esto se debe a que en el siguiente subtema definiremos un tipo de columna diferente y me gustaría que tanto las columnas definidas en el punto _3.1_ y _3.2_ tengan el mismo `padding`.
+En la definición de columna *(Punto 3.)* te hable de los `gutters`, pero en nuestra clase `.col` notaras que no estoy usando la propiedad de `padding` aun, esto se debe a que en el siguiente subtema definiremos un tipo de columna diferente y me gustaría que tanto las columnas definidas en el punto *3.1* y *3.2* tengan el mismo `padding`.
 
 Dentro de nuestro archivo de variables `_variables.scss` agreguemos una nueva:
 
@@ -186,7 +185,7 @@ Puede que por algún motivo no necesites el gutter en todas las columnas de una 
 }
 ```
 
-O si prefieres algo mas especifico que pueda funcionar en una sola columna _(esta clase se aplicaría directamente a la columna y no a la fila)_:
+O si prefieres algo mas especifico que pueda funcionar en una sola columna *(esta clase se aplicaría directamente a la columna y no a la fila)*:
 
 ```scss
 [class*=col].no-gutter {
@@ -198,8 +197,7 @@ Ahora bien, prosigamos con un tipo de columna un poco más complejo.
 
 #### 3.2.- Tamaño definido manualmente
 
-En este tipo de columnas es necesario definir su tamaño y como se comportara en diferentes resoluciones _(Breakpoints)_.
-Antes de iniciar con el comportamiento de nuestras columnas en diferentes resoluciones veamos primero cual es la lógica para definir su tamaño.
+En este tipo de columnas es necesario definir su tamaño y como se comportara en diferentes resoluciones *(Breakpoints)*. Antes de iniciar con el comportamiento de nuestras columnas en diferentes resoluciones veamos primero cual es la lógica para definir su tamaño.
 
 Suponiendo que tenemos las siguientes clase y que nuestro grid estará usando 12 columnas:
 
@@ -217,8 +215,7 @@ A simple vista podemos observar o intuir que si nuestro grid es de 12 columnas l
 }
 ```
 
-¿Pero cuáles son las matemáticas detrás de estos tamaños?
-Es simple, para definir los demás tamaños usaremos una regla de tres.
+¿Pero cuáles son las matemáticas detrás de estos tamaños? Es simple, para definir los demás tamaños usaremos una regla de tres.
 
 ```
 12 = 100
@@ -291,7 +288,7 @@ Estas clases las pudiéramos usar de la siguiente manera:
 </div>
 ```
 
-Y como resultado tendríamos 3 columnas perfectamente balanceadas tomando el equivalente a 4 columnas cada una _(33.333%)_ y sumando un total de 12 _(100%)_.
+Y como resultado tendríamos 3 columnas perfectamente balanceadas tomando el equivalente a 4 columnas cada una *(33.333%)* y sumando un total de 12 *(100%)*.
 
 La teoría detrás de un grid system es muy simple pero no hemos terminado aún; recordemos mencione anteriormente que en este tipo de columnas nosotros definimos cuanto tienen que medir en diferentes resoluciones, y eso será lo siguiente con lo que estaremos trabajando.
 
@@ -339,7 +336,7 @@ Un mixin es algo muy similar a lo que conocemos como funciones en lenguajes de p
 
 El ejemplo practico que la misma [documentacion](https://sass-lang.com/guide#topic-6) nos muestra sobre un mixin es el siguiente:
 
-_SCSS_    
+*SCSS*    
 
 ```scss
 @mixin transform($property) {
@@ -353,7 +350,7 @@ _SCSS_
 }
 ```
 
-_CSS_
+*CSS*
 
 ```scss
 .box {
@@ -425,10 +422,9 @@ Ahora bien, ¿cómo terminan de encajar todo esto con nuestro grid system?
 </div>
 ```
 
-Tomando como referencia el código de ejemplo mostrado anteriormente, podremos observar como estamos renderizando 3 elementos en la misma fila, abarcando el 100% del espacio disponible ya que suman un total de 12 columnas donde 12 es el 100% _(col-4, 4*3=12)_.
+Tomando como referencia el código de ejemplo mostrado anteriormente, podremos observar como estamos renderizando 3 elementos en la misma fila, abarcando el 100% del espacio disponible ya que suman un total de 12 columnas donde 12 es el 100% *(col-4, 4*3=12)*.
 
 Actualmente contamos con la habilidad de asignar a nuestras columnas un tamaño fijo y este se mantendrá sin importar la resolucion, estoy bastante seguro de que no siempre nos gustara mantener la misma distribución y preferimos indicarle a nuestras columnas como se tienen que comportar en diferentes resoluciones o breakpoints, y para esto usamos clases como las siguientes:
-
 
 ```html
 <div class="container">
@@ -441,7 +437,6 @@ Actualmente contamos con la habilidad de asignar a nuestras columnas un tamaño 
 ```
 
 Estamos pasando de usar tamaños fijos a variables especificando cuánto tiene que abarcar cada columna dependiendo del breakpoint. Para conseguir este resultado simplemente se necesita definir estas clases dentro de su respectivo breakpoint mixin como lo muestro a continuación:
-
 
 ```scss
 @include xs {
@@ -495,7 +490,7 @@ Estamos pasando de usar tamaños fijos a variables especificando cuánto tiene q
 }
 ```
 
-Para cada breakpoint mixin usaremos la misma cantidad de clases y porcentajes, lo único que nos ayuda a diferenciar qué clases serán aplicadas son sus breakpoint sizes _(xs, sm, md y lg)_ que concatenamos en la clase _(.col-[breakpoint-size]-[column])_.
+Para cada breakpoint mixin usaremos la misma cantidad de clases y porcentajes, lo único que nos ayuda a diferenciar qué clases serán aplicadas son sus breakpoint sizes *(xs, sm, md y lg)* que concatenamos en la clase *(.col-\[breakpoint-size]-\[column])*.
 
 ```scss
 @include sm {
@@ -553,8 +548,7 @@ Para cada breakpoint mixin usaremos la misma cantidad de clases y porcentajes, l
 }
 ```
 
-Una vez terminado esto tendrás un grid system funcional, pero recordemos uno de los principios de desarrollo de software llamado [*DRY*](https://www.wikiwand.com/es/No_te_repitas) _(Don't Repeat Yourself)_.
-Este principio promueve la reducción de duplicación, y como pudiste notar el hecho de repetir 12 clases de CSS por cada uno de nuestros breakpoints nos daría un total de por lo menos 48 clases; puede que no le veas problema alguno pero confía en mí, a la larga el mantenimiento de tantas líneas puede volverse un poco tedioso y fácilmente podemos cometer errores si decidimos hacer un cambio.
+Una vez terminado esto tendrás un grid system funcional, pero recordemos uno de los principios de desarrollo de software llamado *[DRY](https://www.wikiwand.com/es/No_te_repitas)* *(Don't Repeat Yourself)*. Este principio promueve la reducción de duplicación, y como pudiste notar el hecho de repetir 12 clases de CSS por cada uno de nuestros breakpoints nos daría un total de por lo menos 48 clases; puede que no le veas problema alguno pero confía en mí, a la larga el mantenimiento de tantas líneas puede volverse un poco tedioso y fácilmente podemos cometer errores si decidimos hacer un cambio.
 
 Una manera de mejorar esto sería hacer uso de los mixins una vez más. Dentro de nuestro archivo de `_mixins.scss` crearemos nuestro `gridGenerator` mixin:
 
@@ -571,9 +565,9 @@ Una manera de mejorar esto sería hacer uso de los mixins una vez más. Dentro d
 
 Para construir un grid system no es necesario usar un preprocesador, desde tiempo atrás podemos hacer uso de `calc()` para hacer operaciones o tener variables nativas, pero para mi una de las ventajas más grandes que tiene un preprocesador es la capacidad de implementar loops/ciclos o condicionales, esto es muy común en lenguajes de programación pero no es posible de manera nativa por ahora en CSS.
 
-Retomando el tema, en nuestro nuevo mixin estamos recibiendo un `$breakpoint` el cual tendrá que ser una cadena de texto, por ejemplo _xs, sm, md, lg_. Tambien podras observar un `@for` el cual iterara desde el _1_ hasta nuestro número definido de columnas, en este caso _12_. _(Estamos sumando 1 al número de columnas por que las iterariamos parten del 0)_
+Retomando el tema, en nuestro nuevo mixin estamos recibiendo un `$breakpoint` el cual tendrá que ser una cadena de texto, por ejemplo *xs, sm, md, lg*. Tambien podras observar un `@for` el cual iterara desde el *1* hasta nuestro número definido de columnas, en este caso *12*. *(Estamos sumando 1 al número de columnas por que las iterariamos parten del 0)*
 
-Este mixin estará creando automáticamente todas las clases del grid, incluso calculará cada porcentaje usando la regla de tres. _(Estoy usando width para ilustrar todo de una manera más sencilla pero se puede usar flex-basis y el método de percentage como se muestra en la línea comentada)_
+Este mixin estará creando automáticamente todas las clases del grid, incluso calculará cada porcentaje usando la regla de tres. *(Estoy usando width para ilustrar todo de una manera más sencilla pero se puede usar flex-basis y el método de percentage como se muestra en la línea comentada)*
 
 Dentro de nuestro archivo `_grid.scss` llamaremos nuestros mixins de la siguiente manera:
 
@@ -597,12 +591,11 @@ Dentro de nuestro archivo `_grid.scss` llamaremos nuestros mixins de la siguient
 
 Y sin lugar a duda sería una versión más limpia, ordenada y mantenible. Esto tendría que seguir generando todas nuestras clases del grid system tal y como si las hubiéramos definido manualmente como lo hicimos anteriormente.
 
-
 ### 4.- Offset a column
 
 Por defecto nuestras columnas siempre inician a posicionarse de izquierda a derecha, quizá te estés preguntando, ¿Cómo puedo centrar un elemento?, ¿Como puedo inciar a posicionar contenido a partir de la mitad de mi fila en adelante? o alguna pregunta por el estilo; una alternativa para lograr estos resultados sería con el uso de columnas vacías, como por ejemplo:
 
-*Alinear a la izquierda _(Por defecto)_*
+*Alinear a la izquierda (Por defecto)*
 
 ```html
 <div class="container">
@@ -612,7 +605,7 @@ Por defecto nuestras columnas siempre inician a posicionarse de izquierda a dere
 </div>
 ```
 
-*Centrar _(Agregando columnas vacías)_*
+*Centrar (Agregando columnas vacías)*
 
 ```html
 <div class="container">
@@ -625,7 +618,7 @@ Por defecto nuestras columnas siempre inician a posicionarse de izquierda a dere
 </div>
 ```
 
-*Alinear a la derecha _(Agregando una columna vacía)_*
+*Alinear a la derecha (Agregando una columna vacía)*
 
 ```html
 <div class="container">
@@ -636,13 +629,13 @@ Por defecto nuestras columnas siempre inician a posicionarse de izquierda a dere
 </div>
 ```
 
-_(Nota: En estos ejemplos estamos considerando que nuestro grid system es de 12 columnas)_
+*(Nota: En estos ejemplos estamos considerando que nuestro grid system es de 12 columnas)*
 
 En los dos últimos ejemplos estamos haciendo uso de columnas vacías de x tamaño para forzar o mover las columnas que nos interesan a la derecha; yo en lo personal no estoy muy a favor de este enfoque así que analicemos otra alternativa.
 
 Las clases offset son muy similares a las clases que usamos para definir el tamaño de nuestras columnas y como se tienen que comportar dependiendo de la resolución; la única diferencia es que en lugar de fijar la anchura de la columna, estas clases agregaran un margin left que desplazará a la columna.
 
-*Alinear a la derecha _(Agregando una columna vacía)_*
+*Alinear a la derecha (Agregando una columna vacía)*
 
 ```html
 <div class="container">
@@ -653,7 +646,7 @@ Las clases offset son muy similares a las clases que usamos para definir el tama
 </div>
 ```
 
-*Alinear a la derecha _(Usando offset classes)_*
+*Alinear a la derecha (Usando offset classes)*
 
 ```html
 <div class="container">
@@ -665,7 +658,7 @@ Las clases offset son muy similares a las clases que usamos para definir el tama
 </div>
 ```
 
-Creo que los dos coincidiremos en que la segunda alternativa usando offset classes es más legible ya que no tenemos que crear nuevos elementos en nuestro DOM _(Etiquetas nuevas sin contenido)_. Te mencioné solo unas cuantas líneas arriba que estas clases offset son similares a las clases que usamos para fijar el tamaño de las columnas, así que extendamos esa funcionalidad en el mixin que general nuestras column classes.
+Creo que los dos coincidiremos en que la segunda alternativa usando offset classes es más legible ya que no tenemos que crear nuevos elementos en nuestro DOM *(Etiquetas nuevas sin contenido)*. Te mencioné solo unas cuantas líneas arriba que estas clases offset son similares a las clases que usamos para fijar el tamaño de las columnas, así que extendamos esa funcionalidad en el mixin que general nuestras column classes.
 
 Dentro del archivo `_mixins.scss` en el `gridGenerator` mixin agreguemos un nuevo parámetro llamado *offset* y tendrá un valor por defecto de `false`.
 
@@ -720,13 +713,13 @@ Estamos usando el nuevo parámetro como una bandera en la cual indicamos si quer
 
 En caso de que tu decidas no generar estas clases offset simplemente cambia el valor de la bandera a `false` o borra por completo el parámetro `$offset`.
 
----
+- - -
 
 ## Cierre
 
-Después de haber explicado cada uno de los elementos que conforman a un grid system, hemos logramos construir algo básico, pero realmente funcional _(Grid system de una dimensión)_. Durante este artículo me esforcé más por redactar algo que te ayude a comprender exactamente cómo funciona un grid system, en lugar de intentar construir algo que pudiera llegar a competir con los más populares ya antes mencionados.
+Después de haber explicado cada uno de los elementos que conforman a un grid system, hemos logramos construir algo básico, pero realmente funcional *(Grid system de una dimensión)*. Durante este artículo me esforcé más por redactar algo que te ayude a comprender exactamente cómo funciona un grid system, en lugar de intentar construir algo que pudiera llegar a competir con los más populares ya antes mencionados.
 
-Se que muchos afirman que el uso de grid systems va en declive, y esto me parece una verdad a medias; definitivamente muchas personas dejaron de usar CSS frameworks con grid systems con el surgimiento de `display: grid` y es comprensible ya que en muchas ocasiones queremos maquetar algo rapido, sin agregar tiempos de carga _(por código de terceros)_, y mas sabiendo que `grid` es la manera nativa de generar filas y columnas para trabajar con dos dimensiones. Por otro lado, tenemos compañías grandes como IBM, Oracle, Github, etc., en las cuales se requiere cumplir con ciertos estándares de calidad, accesibilidad y seguir con el mismo “Look and feel” que le pertenece a cada compañía. Entonces tiene más sentido construir un "Grid system" e incorporarlo dentro de un "Design system" para asegurar el cumplimiento de lo ya antes mencionado. Estos no son los únicos casos de uso, y valdría la pena evaluar antes de cada proyecto si es necesario o no usar un grid system o design system.
+Se que muchos afirman que el uso de grid systems va en declive, y esto me parece una verdad a medias; definitivamente muchas personas dejaron de usar CSS frameworks con grid systems con el surgimiento de `display: grid` y es comprensible ya que en muchas ocasiones queremos maquetar algo rapido, sin agregar tiempos de carga *(por código de terceros)*, y mas sabiendo que `grid` es la manera nativa de generar filas y columnas para trabajar con dos dimensiones. Por otro lado, tenemos compañías grandes como IBM, Oracle, Github, etc., en las cuales se requiere cumplir con ciertos estándares de calidad, accesibilidad y seguir con el mismo “Look and feel” que le pertenece a cada compañía. Entonces tiene más sentido construir un "Grid system" e incorporarlo dentro de un "Design system" para asegurar el cumplimiento de lo ya antes mencionado. Estos no son los únicos casos de uso, y valdría la pena evaluar antes de cada proyecto si es necesario o no usar un grid system o design system.
 
 El verdadero motivo detrás de este artículo es despertar la curiosidad que hay en ti para intentar comprender cómo funcionan esas herramientas que usamos día a día, estoy seguro que más de alguno de los lectores que están leyendo este artículo ha trabajado con un grid system pero no se habían detenido a analizar cómo es que funcionan.
 
@@ -734,12 +727,13 @@ No hay mejor manera de aprender, que analizar proyectos open source para despué
 
 Así que la próxima vez que estés trabajando con alguna librería o framework pregúntate:
 
-_**¿Cómo es que esto fue construido?**_
+***¿Cómo es que esto fue construido?***
 
----
+- - -
 
 ## Extas
 
-- **[Código Fuente](https://github.com/JoseJesusOchoaTorres/grid-system-example)**
-- **[Live Demo](https://josejesusochoatorres.github.io/grid-system-example/index.html)**
+* **[Código Fuente](https://github.com/JoseJesusOchoaTorres/grid-system-example)**
+* **[Live Demo](https://josejesusochoatorres.github.io/grid-system-example/index.html)**
 
+  ![Simple Grid system example](images/GridExample.png "Grid system - Demo")
