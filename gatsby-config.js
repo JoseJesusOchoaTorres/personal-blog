@@ -10,24 +10,32 @@ module.exports = {
     },
     social: [
       {
-        name: `twitter`,
-        url: `https://twitter.com/jjot93`,
+        name: `linkedin`,
+        url: `https://www.linkedin.com/in/jjot93/`,
       },
       {
         name: `github`,
         url: `https://github.com/JoseJesusOchoaTorres/`,
       },
       {
+        name: `twitter`,
+        url: `https://twitter.com/jjot93`,
+      },
+      {
         name: `instagram`,
         url: `https://www.instagram.com/jose.jesus.ochoa.torres/`,
       },
       {
-        name: `linkedin`,
-        url: `https://www.linkedin.com/in/jjot93/`,
-      },
-      {
         name: `facebook`,
         url: `https://www.facebook.com/jose.jesus.ochoa.torres`,
+      },
+      {
+        name: `medium`,
+        url: `https://medium.com/@jjot`,
+      },
+      {
+        name: `dev`,
+        url: `https://dev.to/josejesusochoatorres`,
       },
     ],
   },
