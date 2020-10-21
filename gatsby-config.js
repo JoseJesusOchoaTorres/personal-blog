@@ -56,13 +56,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Jose Jesus`,
-        short_name: `Jose Jesus`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#fff`,
-        display: `fullscreen`,
-        icon: `src/assets/favicon.png`,
+        name: 'Jose Jesus',
+        short_name: 'Jose Jesus',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#fff',
+        display: 'fullscreen',
+        icon: 'src/assets/favicon.png',
       },
     },
     {
@@ -74,6 +74,12 @@ module.exports = {
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
       },
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://gmail.us20.list-manage.com/subscribe/post?u=dadcd99520332671586cf9a44&amp;id=ce31234930',
+      },
+    },
   ],
 };
