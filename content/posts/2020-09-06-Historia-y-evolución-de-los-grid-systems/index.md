@@ -1,7 +1,7 @@
 ---
-title: Crea tu propio grid system
+title: Crea tu propio CSS Grid system
 author: Jose Jesus Ochoa Torres
-date: '2020-10-18'
+date: 2020-10-18
 excerpt: ¿Qué es un grid system y cómo se construyen?
 hero: images/historia-y-evolución-de-los-grid-systems-hero.jpg
 ---
