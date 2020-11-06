@@ -4,7 +4,7 @@ author: Jose Jesus Ochoa Torres
 date: 2020-11-06
 excerpt: "Platica en la cual se tocan muchos temas como lo son: Qué es un grid
   system?, Orígenes, Evolución, metodologías de CSS, estado actual, grid, etc."
-hero: images/gdljs.png
+hero: images/gdljs-1-.png
 ---
 # **GDLJS (Talk): Grid systems and more**
 
