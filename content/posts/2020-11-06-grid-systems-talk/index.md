@@ -31,17 +31,6 @@ Si algo de esto te llamó la atención te invito a verla en el siguiente enlace 
 
 Este enlace iniciará a reproducir mi charla desde el minuto 80 o 1 hr 20 minutos, ya que antes de mi Arath Jimenez (@arathjz) presentó una muy interesante charla de accesibilidad, así que te invito a darle una revisada tambien en el minuto [33](https://www.twitch.tv/videos/784084881?t=00h33m03s).
 
-<!-- Add a placeholder for the Twitch embed -->
-<div id="twitch-embed"></div>
+<iframe src="https://player.twitch.tv/?video=784084881&time=1h20m9s&parent=www.example.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
-<!-- Load the Twitch embed script -->
-<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-
-<!-- Create a Twitch.Player object. This will render within the placeholder div -->
-<script type="text/javascript">
-  new Twitch.Player("twitch-embed", {
-    video: "784084881",
-    time: "1h20m9s"
-  });
-</script>
 
