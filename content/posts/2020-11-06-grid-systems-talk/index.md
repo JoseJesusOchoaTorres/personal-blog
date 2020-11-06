@@ -31,6 +31,6 @@ Si algo de esto te llamó la atención te invito a verla en el siguiente enlace 
 
 Este enlace iniciará a reproducir mi charla desde el minuto 80 o 1 hr 20 minutos, ya que antes de mi Arath Jimenez (@arathjz) presentó una muy interesante charla de accesibilidad, así que te invito a darle una revisada tambien en el minuto [33](https://www.twitch.tv/videos/784084881?t=00h33m03s).
 
-<iframe src="https://player.twitch.tv/?video=784084881&time=1h20m9s&parent=www.example.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+<iframe src="https://player.twitch.tv/?video=784084881&time=1h20m9s&parent=josejesus.dev" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
 
