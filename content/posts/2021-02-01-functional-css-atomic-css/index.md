@@ -1,5 +1,5 @@
 ---
-title: Functional CSS (Atomic CSS)
+title: Functional CSS
 author: Jose Jesus Ochoa Torres
 date: 2021-01-29
 excerpt: What the Functional CSS is and how you can use it to build CSS Frameworks
