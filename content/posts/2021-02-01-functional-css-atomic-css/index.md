@@ -180,32 +180,19 @@ $color-white-a50: rgba(157, 157, 157, .5);
 $color-gray-1: #F5F5F5;
 $color-gray-2: #EFEFEF;
 $color-gray-3: #D3D3D3;
-$color-gray-4: #A1A1A1;
-$color-gray-5: #828282;
-$color-gray-6: #4E4E4E;
-$color-gray-7: #3F3F3F;
-$color-gray-8: #2D2D2D;
-$color-gray-9: #858585;
-$color-gray-10: #A5A5A5;
 ```
 
 Let's create a map with these variables:
 
 ```SCSS
 $colors: (
-  black: $d1-color-black,
-  white: $d1-color-white,
-  black-a80: $d1-color-black-a80,
-  white-a50: $d1-color-white-a50,
-  gray-1: $d1-color-gray-1,
-  gray-2: $d1-color-gray-2,
-  gray-3: $d1-color-gray-3,
-  gray-4: $d1-color-gray-4,
-  gray-5: $d1-color-gray-5,
-  gray-6: $d1-color-gray-6,
-  gray-7: $d1-color-gray-7,
-  gray-8: $d1-color-gray-8,
-  gray-9: $d1-color-gray-9,
+  black: $color-black,
+  white: $color-white,
+  black-a80: $color-black-a80,
+  white-a50: $color-white-a50,
+  gray-1: $color-gray-1,
+  gray-2: $color-gray-2,
+  gray-3: $color-gray-3,
 );
 ```
 
@@ -247,7 +234,7 @@ Let's see how to call the mixing:
 Pay attention I'm calling our mixing instance inside of a class, so I'm going to concatenate key values with this class, for example:
 
 ```SCSS
-.text-color-black { color: #FFFFFF; }
+.text-color-black { color: #000000; }
 .text-color-white {...}
 .text-color-black-a80 {...}
 .text-color-white-a50 {...}
@@ -395,9 +382,9 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     ```
 
     ```SCSS
-    .text-color__black { color: #000; }
-    .background-color__black { background-color: #000; }
-    .border-color__black { border-color: #000; }
+    .text-color__black { color: #000000; }
+    .background-color__black { background-color: #000000; }
+    .border-color__black { border-color: #000000; }
     ```
 
     _NOTE: I have updated the prefix value just to help you understand what their purpose is._
