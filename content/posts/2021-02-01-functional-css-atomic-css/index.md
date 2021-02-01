@@ -159,7 +159,7 @@ Using SASS, we can use mixings to auto-generate all classes taking the informati
 
 Imagine we have the next SASS variables:
 
-```SCSS
+```css
 /**
 * BLACK AND WHITE
 */
@@ -184,7 +184,7 @@ $color-gray-3: #D3D3D3;
 
 Let's create a map with these variables:
 
-```SCSS
+```css
 $colors: (
   black: $color-black,
   white: $color-white,
@@ -201,7 +201,7 @@ I'm going to use the "key" as my class name and the "value" in the map like the 
 
 ### Classes generator
 
-```SCSS
+```css
 @mixin generator($map, $property, $prefix: '-', $sufix: '') {
     @each $key, $value in $map {
         &#{$prefix}#{$key} {
@@ -225,7 +225,7 @@ As you know now, I'm iterating over each map element, using the key to generate 
 
 Let's see how to call the mixing:
 
-```SCSS
+```css
 .text-color {
     @include generator($colors, 'color', $prefix: '-');
 }
@@ -233,7 +233,7 @@ Let's see how to call the mixing:
 
 Pay attention I'm calling our mixing instance inside of a class, so I'm going to concatenate key values with this class, for example:
 
-```SCSS
+```css
 .text-color-black { color: #000000; }
 .text-color-white {...}
 .text-color-black-a80 {...}
@@ -250,7 +250,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
 
 - **Text alignment:**
 
-    ```SCSS
+    ```css
     .text {
         &-center {
             text-align: center;
@@ -268,21 +268,21 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     _NOTE: In this case, I'm not using either map or the mixing, if you want you can add these rules inside a map and iterate them._
 
     Example of generated classes:
-    ```SCSS
+    ```css
     .text-center { text-align: center; }
     ...
     ```
 
 - **Content alignment and distribution**
 
-    ```SCSS
+    ```css
     .flex {
         display: flex;
     }
     ```
 
     Nested map:
-    ```SCSS
+    ```css
     $contentAlignments: (
         justify-content: (
             left: flex-start,
@@ -306,7 +306,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     ```
 
     Mixing variation:
-    ```SCSS
+    ```css
     @mixin nestedGenerator($breakpoint, $content) {
         @each $property, $values in $content {
             @each $key, $value in $values {
@@ -319,7 +319,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     ```
 
     Calling mixing
-    ```SCSS
+    ```css
     @include nestedGenerator($breakpoint: 'xs', $content: $contentAlignments);
     @include nestedGenerator($breakpoint: 'xs', $content: $contentDistribution);
 
@@ -342,7 +342,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     _NOTE: I'm using another breakpoint mixing to apply the same classes in different breakpoints. If you are not interested in working with different resolutions you can remove the $breakpoint parameter._
 
     Example of generated classes:
-    ```SCSS
+    ```css
     .sm-left { justify-content: flex-start; }
     .md-center { justify-content: center; }
     .lg-right { justify-content: flex-end; }
@@ -351,7 +351,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
 
 - **Colors:**
 
-    ```SCSS
+    ```css
     $colors: (
         black: $black,
         white: $white,
@@ -367,7 +367,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     );
     ```
 
-    ```SCSS
+    ```css
     .text-color {
         @include generator($colors, 'color', $prefix: '__');
     }
@@ -381,7 +381,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     }
     ```
 
-    ```SCSS
+    ```css
     .text-color__black { color: #000000; }
     .background-color__black { background-color: #000000; }
     .border-color__black { border-color: #000000; }
@@ -391,7 +391,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
 
 - **Text:**
 
-    ```SCSS
+    ```css
     .text-bold {
         font-weight: bold;
     }
@@ -427,7 +427,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
 
 - **Spacing padding/margin**
 
-    ```SCSS
+    ```css
     $spacings: (
         0: 0,
         1: 0.625,
@@ -447,7 +447,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     $properties: padding, margin;
     ```
 
-    ```SCSS
+    ```css
     @each $property in $properties {
          .#{$property} {
              @include generator($spacings, #{$property}, $sufix: 'rem');
@@ -466,7 +466,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     _NOTE: Take a look at how I'm not setting a measure type in my `$spacings` and `$responsiveSpacings` map. I'm sending the measure type as a parameter in the mixing ("rem" and "vh")._
 
     Example of generated classes:
-    ```SCSS
+    ```css
     .padding-top-1 { padding-top: 0.625rem; }
     .margin-right-1 { margin-right: 0.625rem; }
     .padding-bottom-r1 { padding-bottom: 2vh; }
