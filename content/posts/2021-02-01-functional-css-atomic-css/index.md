@@ -473,7 +473,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
     .margin-1 { margin: 0.625rem; }
     ```
 
-## Conclution
+## Conclusion
 
 The frontend development is changing quickly, and If you are using web components, then you might be encapsulating the CSS styles in them.
 
