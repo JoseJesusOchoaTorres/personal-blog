@@ -16,7 +16,7 @@ This approach consists of creating reusable and small CSS classes with only one 
 
 Let me show you more examples to try to reinforce my definition above.
 
-*Updating text color:*
+**Updating text color:**
 
 ```css
 .text-color-red {
@@ -30,7 +30,7 @@ Let me show you more examples to try to reinforce my definition above.
 ...
 ```
 
-*Updating padding:*
+**Updating padding:**
 
 ```css
 .padding-1 {
@@ -48,7 +48,7 @@ Let me show you more examples to try to reinforce my definition above.
 ...
 ```
 
-*Updating padding and margin*
+**Updating padding and margin**
 
 ```css
 .no-spacing {
@@ -60,17 +60,17 @@ Let me show you more examples to try to reinforce my definition above.
 As you can see, it's a regular pattern to use, one class by one CSS property, but this is not a rule. Pay attention to my last example where I'm removing the padding, and margin in the same class, so we can say that we have a one purpose CSS class.
 
 
-## When you can use this approach
+## When you can use this approach?
 
 To try to answer this, let's talk about my first IBM role. The official name of that role was "Web Builder" or the equivalent outside of IBM, Web Designer.
 
-The Web builder's goal is to create IBM web pages following standards, Good practices, accessibility, security, improving performance, responsive design, and content available all time.
+The Web builder's goal is to create IBM web pages following standards, good practices, accessibility, security, improving performance, responsive design, and content available all time.
 
-What do I mean by the content?
+What do I mean by the "content available all time"?
 
-Well, it's Important to show content appropriately at all times without breaking the layout in different breakpoints or resolutions.
+Well, it's Important to show content appropriately without breaking the layout in different breakpoints or resolutions.
 
-If you look at this from the business side, you want to build web pages quickly, saving time (money money money) while following high standards, and also making sure your content is available at all times, so it makes sense to create a CSS framework limiting the development options and minimizing the error range.
+If you look at this from the business side, you want to build web pages quickly, saving time _(money money money)_ while following high standards, and also making sure your content is available at all times, so it makes sense to create a CSS framework limiting the development options and minimizing the error range.
 
 As web builders, we used this CSS framework without coding a single CSS line. Maybe at this point, you are thinking then how do you add styles to the IBM pages? Easy, this CSS framework uses a lot of functional CSS combined with prefabricated elements; these elements are styled following the BEM methodology, let me use more examples to clarify this approach.
 
@@ -100,7 +100,16 @@ If you inspect an IBM web page with your dev tools you will find something like 
 
 Do you recognize it? In that example, IBM uses the BEM methodology to create the element's structure with a couple of base styles and overwriting or complementing them with Functional CSS.
 
-The functional CSS is not used only by IBM in their internal framework, you can find more examples in the [Bootstrap](https://getbootstrap.com/docs/5.0/utilities/display/#examples) documenation:
+- ibm-nospacing
+- ibm-padding-bottom-0
+- ibm-padding-bottom-1
+- ibm-textcolor-systems-blue-5
+
+
+The functional CSS is not used only by IBM in their internal framework, you can find more examples in popular CSS frameworks:
+
+
+**[Bootstrap](https://getbootstrap.com/docs/5.0/utilities/text/#text-alignment)**
 
 ```html
 <span class="d-block p-2 bg-primary text-white">d-block</span>
@@ -111,10 +120,36 @@ The functional CSS is not used only by IBM in their internal framework, you can 
 <p class="text-end">End aligned text on all viewport sizes.</p>
 ```
 
+**[Bulma](https://bulma.io/documentation/helpers/visibility-helpers/#show)**
+
+```HTML
+<div class="is-flex">...</div>
+<div class="is-block">...</div>
+<div class="is-inline">...</div>
+<div class="inline-block">...</div>
+
+<p class="mb-4">Margin bottom</p>
+<p class="px-1">Horizontal padding</p>
+
+<p class="mr-0 pt-3">
+  Removes the margin on the right and adds 0.75rem padding at the top
+</p>
+```
+
+**[Tailwind](https://getbootstrap.com/docs/5.0/utilities/text/#text-alignment)**
+
+```HTML
+<div class="border-4 border-light-blue-500 border-opacity-100 ..."></div>
+<div class="border-4 border-light-blue-500 border-opacity-75 ..."></div>
+<div class="border-4 border-light-blue-500 border-opacity-50 ..."></div>
+<div class="border-4 border-light-blue-500 border-opacity-25 ..."></div>
+<div class="border-4 border-light-blue-500 border-opacity-0 ..."></div>
+```
+
 After this short introduction, you can understand why I wanted to complement my first [article (in Spanish)](https://josejesus.dev/crea-tu-propio-css-grid-system) with this one. If you read these articles, you will have a piece of basic knowledge to understand how the most popular CSS frameworks work.
 
 
-## How I implement my Functional CSS classes
+## How do I implement my Functional CSS classes?
 
 If you are only using CSS, you don't have another option, write your classes manually, but if you are using SASS or another CSS preprocessor, this will be more fun.
 
@@ -174,15 +209,15 @@ $colors: (
 );
 ```
 
-I'm going to use the "key" as my class name and the "value" in the map like the real value of the property I select in our SASS mixin.
+I'm going to use the "key" as my class name and the "value" in the map like the real value of the property I select in my SASS mixin.
 
 
 ### Classes generator
 
 ```SCSS
-@mixin generator($map, $property, $sufix: '') {
+@mixin generator($map, $property, $prefix: '-', $sufix: '') {
     @each $key, $value in $map {
-        &#{$key} {
+        &#{$prefix}#{$key} {
             #{$property}:#{$value}#{$sufix};
         }
     }
@@ -191,9 +226,11 @@ I'm going to use the "key" as my class name and the "value" in the map like the 
 
 Well, let me explain:
 
-**$map:** This is the data collection with the class name and their property value.
+**$map:** This parameter is the data collection with the class name and their property value.
 
 **$property:** This parameter could be explained by itself. I can use X params like color, background-color, font-size, display, etc.
+
+**$prefix:** The parameter used to concatenate the map's key and the class where the mixin is called.
 
 **$sufix:** This is an optional parameter that I can use to set the measure type, px, rem, em, vh, etc. Or you can store the type inside the map and use this parameter to concatenate something else _(!important could be a good example in some specific cases)_.
 
@@ -203,7 +240,7 @@ Let's see how to call the mixing:
 
 ```SCSS
 .text-color {
-    @include generator($colors, 'color', $separator: ':');
+    @include generator($colors, 'color', $prefix: '-');
 }
 ```
 
@@ -222,7 +259,7 @@ Pay attention I'm calling our mixing instance inside of a class, so I'm going to
 Another interesting thing to keep in mind is, that I'm using SASS variables in this example, and these are pre-compiled, so that means we can't update them after being compiled; if you are working with a color theme _(dark and light theme)_ I recommend using native CSS variables.
 
 
-### What classes I usually reuse?
+### What classes do I usually reuse?
 
 - **Text alignment:**
 
@@ -315,7 +352,7 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
      }
     ```
 
-    _NOTE: I'm using another breakpoint mixing to apply the same classes in different breakpoints. If you are not interested in working with different resolutions you can remove the $breakpoint parameter ._
+    _NOTE: I'm using another breakpoint mixing to apply the same classes in different breakpoints. If you are not interested in working with different resolutions you can remove the $breakpoint parameter._
 
     Example of generated classes:
     ```SCSS
@@ -345,23 +382,25 @@ Another interesting thing to keep in mind is, that I'm using SASS variables in t
 
     ```SCSS
     .text-color {
-        @include generator($colors, 'color', $separator: ':');
+        @include generator($colors, 'color', $prefix: '__');
     }
 
     .background-color {
-        @include generator($colors, 'background-color', $separator: ':');
+        @include generator($colors, 'background-color', $prefix: '__');
     }
 
     .border-color {
-        @include generator($colors, 'border-color', $separator: ':');
+        @include generator($colors, 'border-color', $prefix: '__');
     }
     ```
 
     ```SCSS
-    .text-color-black { color: #000; }
-    .background-color-black { background-color: #000; }
-    .border-color-black { border-color: #000; }
+    .text-color__black { color: #000; }
+    .background-color__black { background-color: #000; }
+    .border-color__black { border-color: #000; }
     ```
+
+    _NOTE: I have updated the prefix value just to help you understand what their purpose is._
 
 - **Text:**
 
