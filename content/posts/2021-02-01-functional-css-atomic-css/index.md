@@ -139,11 +139,11 @@ The functional CSS is not used only by IBM in their internal framework, you can 
 **[Tailwind](https://getbootstrap.com/docs/5.0/utilities/text/#text-alignment)**
 
 ```HTML
-<div class="border-4 border-light-blue-500 border-opacity-100 ..."></div>
-<div class="border-4 border-light-blue-500 border-opacity-75 ..."></div>
-<div class="border-4 border-light-blue-500 border-opacity-50 ..."></div>
-<div class="border-4 border-light-blue-500 border-opacity-25 ..."></div>
-<div class="border-4 border-light-blue-500 border-opacity-0 ..."></div>
+<div class="border-4 border-light-blue-500 border-opacity-100"></div>
+<div class="border-4 border-light-blue-500 border-opacity-75"></div>
+<div class="border-4 border-light-blue-500 border-opacity-50"></div>
+<div class="border-4 border-light-blue-500 border-opacity-25"></div>
+<div class="border-4 border-light-blue-500 border-opacity-0"></div>
 ```
 
 After this short introduction, you can understand why I wanted to complement my first [article (in Spanish)](https://josejesus.dev/crea-tu-propio-css-grid-system) with this one. If you read these articles, you will have a piece of basic knowledge to understand how the most popular CSS frameworks work.
