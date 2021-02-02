@@ -9,6 +9,8 @@ hero: images/pankaj-patel-6jvlsdgmace-unsplash.jpg
 
 A while ago, I published an article explaining how grid systems work and how you can create one from scratch. I'll like to complement that article by talking about functional CSS _(Atomic CSS)_; you can find this approach with both names, but be careful "Atomic CSS" is not the same as Atomic design.
 
+___
+
 
 ## What the functional CSS is?
 
@@ -58,6 +60,9 @@ Let me show you more examples to try to reinforce my definition above.
 ```
 
 As you can see, it's a regular pattern to use, one class by one CSS property, but this is not a rule. Pay attention to my last example where I'm removing the padding, and margin in the same class, so we can say that we have a one purpose CSS class.
+
+
+___
 
 
 ## When you can use this approach?
@@ -122,7 +127,7 @@ The functional CSS is not used only by IBM in their internal framework, you can 
 
 **[Bulma](https://bulma.io/documentation/helpers/visibility-helpers/#show)**
 
-```HTML
+```html
 <div class="is-flex">...</div>
 <div class="is-block">...</div>
 <div class="is-inline">...</div>
@@ -138,7 +143,7 @@ The functional CSS is not used only by IBM in their internal framework, you can 
 
 **[Tailwind](https://getbootstrap.com/docs/5.0/utilities/text/#text-alignment)**
 
-```HTML
+```html
 <div class="border-4 border-light-blue-500 border-opacity-100"></div>
 <div class="border-4 border-light-blue-500 border-opacity-75"></div>
 <div class="border-4 border-light-blue-500 border-opacity-50"></div>
@@ -147,6 +152,9 @@ The functional CSS is not used only by IBM in their internal framework, you can 
 ```
 
 After this short introduction, you can understand why I wanted to complement my first [article (in Spanish)](https://josejesus.dev/crea-tu-propio-css-grid-system) with this one. If you read these articles, you will have a piece of basic knowledge to understand how the most popular CSS frameworks work.
+
+
+___
 
 
 ## How do I implement my Functional CSS classes?
@@ -246,232 +254,238 @@ Pay attention I'm calling our mixing instance inside of a class, so I'm going to
 Another interesting thing to keep in mind is, that I'm using SASS variables in this example, and these are pre-compiled, so that means we can't update them after being compiled; if you are working with a color theme _(dark and light theme)_ I recommend using native CSS variables.
 
 
-### What classes do I usually reuse?
+___
+
+
+## What classes do I usually reuse?
 
 - **Text alignment:**
 
-    ```css
-    .text {
-        &-center {
-            text-align: center;
-        }
+```css
+.text {
+    &-center {
+        text-align: center;
+    }
 
-        &-right {
-            text-align: right;
-        }
+    &-right {
+        text-align: right;
+    }
 
-        &-left {
-            text-align: left;
-        }
-    }   
-    ```
-    _NOTE: In this case, I'm not using either map or the mixing, if you want you can add these rules inside a map and iterate them._
+    &-left {
+        text-align: left;
+    }
+}   
+```
+_NOTE: In this case, I'm not using either map or the mixing, if you want you can add these rules inside a map and iterate them._
 
-    Example of generated classes:
-    ```css
-    .text-center { text-align: center; }
-    ...
-    ```
+Example of generated classes:
+```css
+.text-center { text-align: center; }
+...
+```
 
 - **Content alignment and distribution**
 
-    ```css
-    .flex {
-        display: flex;
-    }
-    ```
+```css
+.flex {
+    display: flex;
+}
+```
 
-    Nested map:
-    ```css
-    $contentAlignments: (
-        justify-content: (
-            left: flex-start,
-            center: center,
-            right: flex-end
-        ),
-        align-items: (
-            top: flex-start,
-            middle: center,
-            bottom: flex-end
-        ),
-    );
+Nested map:
+```css
+$contentAlignments: (
+    justify-content: (
+        left: flex-start,
+        center: center,
+        right: flex-end
+    ),
+    align-items: (
+        top: flex-start,
+        middle: center,
+        bottom: flex-end
+    ),
+);
 
-    $contentDistribution: (
-        justify-content: (
-            around: space-around,
-            between: space-between,
-            evenly: space-evenly
-        )
-    );
-    ```
+$contentDistribution: (
+    justify-content: (
+        around: space-around,
+        between: space-between,
+        evenly: space-evenly
+    )
+);
+```
 
-    Mixing variation:
-    ```css
-    @mixin nestedGenerator($breakpoint, $content) {
-        @each $property, $values in $content {
-            @each $key, $value in $values {
-                .#{$breakpoint}-#{$key} {
-                    #{$property}: #{$value};
-                }
+Mixing variation:
+```css
+@mixin nestedGenerator($breakpoint, $content) {
+    @each $property, $values in $content {
+        @each $key, $value in $values {
+            .#{$breakpoint}-#{$key} {
+                #{$property}: #{$value};
             }
         }
     }
-    ```
+}
+```
 
-    Calling mixing
-    ```css
-    @include nestedGenerator($breakpoint: 'xs', $content: $contentAlignments);
-    @include nestedGenerator($breakpoint: 'xs', $content: $contentDistribution);
+Calling mixing
+```css
+@include nestedGenerator($breakpoint: 'xs', $content: $contentAlignments);
+@include nestedGenerator($breakpoint: 'xs', $content: $contentDistribution);
 
-     @include sm {
-        @include nestedGenerator($breakpoint: 'sm', $content: $contentAlignments);
-        @include nestedGenerator($breakpoint: 'sm', $content: $contentDistribution);
-     }
+    @include sm {
+    @include nestedGenerator($breakpoint: 'sm', $content: $contentAlignments);
+    @include nestedGenerator($breakpoint: 'sm', $content: $contentDistribution);
+    }
 
-     @include md {
-        @include nestedGenerator($breakpoint: 'md', $content: $contentAlignments);
-         ...
-     }
+    @include md {
+    @include nestedGenerator($breakpoint: 'md', $content: $contentAlignments);
+        ...
+    }
 
-     @include lg {
-        @include nestedGenerator($breakpoint: 'lg', $content: $contentAlignments);
-         ...
-     }
-    ```
+    @include lg {
+    @include nestedGenerator($breakpoint: 'lg', $content: $contentAlignments);
+        ...
+    }
+```
 
-    _NOTE: I'm using another breakpoint mixing to apply the same classes in different breakpoints. If you are not interested in working with different resolutions you can remove the $breakpoint parameter._
+_NOTE: I'm using another breakpoint mixing to apply the same classes in different breakpoints. If you are not interested in working with different resolutions you can remove the $breakpoint parameter._
 
-    Example of generated classes:
-    ```css
-    .sm-left { justify-content: flex-start; }
-    .md-center { justify-content: center; }
-    .lg-right { justify-content: flex-end; }
-    ...
-    ```
+Example of generated classes:
+```css
+.sm-left { justify-content: flex-start; }
+.md-center { justify-content: center; }
+.lg-right { justify-content: flex-end; }
+...
+```
 
 - **Colors:**
 
-    ```css
-    $colors: (
-        black: $black,
-        white: $white,
-        gray-light-1: $gray-light-1,
-        gray-light-2: $gray-light-2,
-        gray-light-3: $gray-light-3,
-        gray-1: $gray-1,
-        gray-2: $gray-2,
-        gray-3: $gray-3,
-        gray-dark-1: $gray-dark-1,
-        gray-dark-2: $gray-dark-2,
-        gray-dark-3: $gray-dark-3,
-    );
-    ```
+```css
+$colors: (
+    black: $black,
+    white: $white,
+    gray-light-1: $gray-light-1,
+    gray-light-2: $gray-light-2,
+    gray-light-3: $gray-light-3,
+    gray-1: $gray-1,
+    gray-2: $gray-2,
+    gray-3: $gray-3,
+    gray-dark-1: $gray-dark-1,
+    gray-dark-2: $gray-dark-2,
+    gray-dark-3: $gray-dark-3,
+);
+```
 
-    ```css
-    .text-color {
-        @include generator($colors, 'color', $prefix: '__');
-    }
+```css
+.text-color {
+    @include generator($colors, 'color', $prefix: '__');
+}
 
-    .background-color {
-        @include generator($colors, 'background-color', $prefix: '__');
-    }
+.background-color {
+    @include generator($colors, 'background-color', $prefix: '__');
+}
 
-    .border-color {
-        @include generator($colors, 'border-color', $prefix: '__');
-    }
-    ```
+.border-color {
+    @include generator($colors, 'border-color', $prefix: '__');
+}
+```
 
-    ```css
-    .text-color__black { color: #000000; }
-    .background-color__black { background-color: #000000; }
-    .border-color__black { border-color: #000000; }
-    ```
+```css
+.text-color__black { color: #000000; }
+.background-color__black { background-color: #000000; }
+.border-color__black { border-color: #000000; }
+```
 
-    _NOTE: I have updated the prefix value just to help you understand what their purpose is._
+_NOTE: I have updated the prefix value just to help you understand what their purpose is._
 
 - **Text:**
 
-    ```css
-    .text-bold {
-        font-weight: bold;
-    }
+```css
+.text-bold {
+    font-weight: bold;
+}
 
-    .text-regular {
-        font-weight: normal;
-    }
+.text-regular {
+    font-weight: normal;
+}
 
-    .text-light {
-        font-weight: lighter;
-    }
+.text-light {
+    font-weight: lighter;
+}
 
-    .text-uppercase {
-        text-transform: uppercase;
-    }
+.text-uppercase {
+    text-transform: uppercase;
+}
 
-    .h1 {
-        font-size: $text-xl;
-    }
+.h1 {
+    font-size: $text-xl;
+}
 
-    .h2 {
-        font-size: $text-lg;
-    }
+.h2 {
+    font-size: $text-lg;
+}
 
-    .h3 {
-        font-size: $text-md;
-    }
+.h3 {
+    font-size: $text-md;
+}
 
-    .h4 {
-        font-size: $text-sm;
-    }
-    ```
+.h4 {
+    font-size: $text-sm;
+}
+```
 
 - **Spacing padding/margin**
 
-    ```css
-    $spacings: (
-        0: 0,
-        1: 0.625,
-        2: 1.25,
-        3: 1.875,
-        4: 2.5,
-        5: 3.125
-    );
+```css
+$spacings: (
+    0: 0,
+    1: 0.625,
+    2: 1.25,
+    3: 1.875,
+    4: 2.5,
+    5: 3.125
+);
 
-    $responsiveSpacings: (
-        r1: 2,
-        r2: 5,
-        r3: 10
-    );
+$responsiveSpacings: (
+    r1: 2,
+    r2: 5,
+    r3: 10
+);
 
-    $spacingSides: top, right, bottom, left;
-    $properties: padding, margin;
-    ```
+$spacingSides: top, right, bottom, left;
+$properties: padding, margin;
+```
 
-    ```css
-    @each $property in $properties {
-         .#{$property} {
-             @include generator($spacings, #{$property}, $sufix: 'rem');
-             @include generator($responsiveSpacings, #{$property}, $sufix: 'vw');
+```css
+@each $property in $properties {
+        .#{$property} {
+            @include generator($spacings, #{$property}, $sufix: 'rem');
+            @include generator($responsiveSpacings, #{$property}, $sufix: 'vw');
 
-             @each $side in $spacingSides {
-                 &-#{$side} {
-                     @include generator($spacings, #{$property}-#{$side}, $sufix: 'rem');
-                     @include generator($responsiveSpacings, #{$property}-#{$side}, $sufix: 'vw');
-                 }
-             }
-         }
-    }
-    ```
+            @each $side in $spacingSides {
+                &-#{$side} {
+                    @include generator($spacings, #{$property}-#{$side}, $sufix: 'rem');
+                    @include generator($responsiveSpacings, #{$property}-#{$side}, $sufix: 'vw');
+                }
+            }
+        }
+}
+```
 
-    _NOTE: Take a look at how I'm not setting a measure type in my `$spacings` and `$responsiveSpacings` map. I'm sending the measure type as a parameter in the mixing ("rem" and "vh")._
+_NOTE: Take a look at how I'm not setting a measure type in my `$spacings` and `$responsiveSpacings` map. I'm sending the measure type as a parameter in the mixing ("rem" and "vh")._
 
-    Example of generated classes:
-    ```css
-    .padding-top-1 { padding-top: 0.625rem; }
-    .margin-right-1 { margin-right: 0.625rem; }
-    .padding-bottom-r1 { padding-bottom: 2vh; }
-    .margin-1 { margin: 0.625rem; }
-    ```
+Example of generated classes:
+```css
+.padding-top-1 { padding-top: 0.625rem; }
+.margin-right-1 { margin-right: 0.625rem; }
+.padding-bottom-r1 { padding-bottom: 2vh; }
+.margin-1 { margin: 0.625rem; }
+```
+
+___
+
 
 ## Conclusion
 
@@ -486,3 +500,11 @@ My suggestion is the next:
 - You can easily create a layout if you have a suite of Functional CSS classes. It could help you deliver an MVP faster.
 
 - You can combine other CSS methodologies with Functional CSS.
+
+
+___
+
+
+## Extra
+
+If you want to see these code snippets, you can set up a SASS project locally or use this option online: [Sassmeister](https://www.sassmeister.com/gist/ab229e765f0ff82daddd104ba0e394e8?token=7d33ba8d43dd8e4512997f74d65ee739954c25a4&scope=gist,read:user)
