@@ -1,10 +1,10 @@
 name: Jose Jesus Ochoa Torres
-bio: 'Software engineer @ IBM'
+bio: Software engineer @ Wizeline
 featured: true
 avatar: ./avatars/jose-jesus-ochoa-torres.jpg
 social:
-  - url: 'https://github.com/JoseJesusOchoaTorres'
-  - url: 'https://www.linkedin.com/in/jjot93/'
-  - url: 'https://www.instagram.com/jose.jesus.ochoa.torres/'
-  - url: 'https://twitter.com/jjot93'
-  - url: 'https://www.facebook.com/jose.jesus.ochoa.torres/'
+  - url: https://github.com/JoseJesusOchoaTorres
+  - url: https://www.linkedin.com/in/jjot93/
+  - url: https://www.instagram.com/jose.jesus.ochoa.torres/
+  - url: https://twitter.com/jjot93
+  - url: https://www.facebook.com/jose.jesus.ochoa.torres/
