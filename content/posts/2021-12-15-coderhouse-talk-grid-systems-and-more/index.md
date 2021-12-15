@@ -3,7 +3,7 @@ title: "CODERHOUSE (Talk): Grid systems and more"
 author: Jose Jesus Ochoa Torres
 date: 2021-12-14
 excerpt: Platica en la cual se explica el origen, la evolución y estado actual
-  de los grid systems.
+  de los grid systems
 hero: images/miniatura_ytb_grid_system_confecha.png
 ---
 # CODERHOUSE (Talk): Grid systems and more
