@@ -28,5 +28,7 @@ Y algunos otros temas complementarios como:
 
 Si algo de esto te llamó la atención te invito a verla en el siguiente enlace de [Youtube](https://youtu.be/GEkJmZP6GMc).
 
-🔥🔥🔥 <https://youtu.be/GEkJmZP6GMc> \
-🔥🔥🔥 [](https://docs.google.com/presentation/d/1SPUQdmkHVyIuIrItXj-nURMuJemPCqpZ/edit?usp=sharing&ouid=101452763488382140646&rtpof=true&sd=true)[Presentación](https://docs.google.com/presentation/d/1SPUQdmkHVyIuIrItXj-nURMuJemPCqpZ/edit?usp=sharing&ouid=101452763488382140646&rtpof=true&sd=true)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GEkJmZP6GMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+* <https://youtu.be/GEkJmZP6GMc>
+* [](https://docs.google.com/presentation/d/1SPUQdmkHVyIuIrItXj-nURMuJemPCqpZ/edit?usp=sharing&ouid=101452763488382140646&rtpof=true&sd=true)[Presentación](https://docs.google.com/presentation/d/1SPUQdmkHVyIuIrItXj-nURMuJemPCqpZ/edit?usp=sharing&ouid=101452763488382140646&rtpof=true&sd=true)
